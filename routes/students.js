@@ -19,12 +19,7 @@ router.get('/:id', findStudentById, (req, res) => {
 
 // create
 router.post('/', async (req, res) => {
-    const student = new Student({
-        id: req.body.id,
-        name: req.body.name,
-        gpa: req.body.gpa,
-        year_enroll: req.body.year_enroll,
-    });
+    const student = new Student(req.body);
 
     try {
         const newStudent = await student.save();
