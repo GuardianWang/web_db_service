@@ -41,7 +41,13 @@ router.patch('/:id', (req, res) => {
 });
 
 // delete
-router.delete('/:id', (req, res) => {
+router.delete('/:id', findStudentById, async (req, res) => {
+    try {
+        const student = await res.student.remove();
+        res.status(200).json(student);
+    } catch (error) {
+        res.status(500).json({message: error.message});
+    }
 
 });
 
