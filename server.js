@@ -11,4 +11,4 @@ db.once("open", () => console.log("connected to mongodb"));
 
 app.use(express.json());
 app.use('/students', studentsRouter);
-app.listen(3000, () => console.log("server started"));
+app.listen(process.env.APP_PORT, () => console.log("server started"));
