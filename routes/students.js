@@ -36,7 +36,14 @@ router.post('/', async (req, res) => {
 });
 
 // update
-router.patch('/:id', (req, res) => {
+router.patch('/:id', findStudentById, async (req, res) => {
+    try {
+        res.student.set(req.body);
+        const updatedStudent = await res.student.save();
+        res.status(200).json(updatedStudent);
+    } catch (error) {
+        res.status(500).json({message: error.message});
+    }
 
 });
 

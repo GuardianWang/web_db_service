@@ -41,3 +41,12 @@ DELETE http://localhost:3000/students/01234
 ###
 
 DELETE http://localhost:3000/students/01235
+
+###
+
+PATCH http://localhost:3000/students/01234
+Content-Type: application/json
+
+{
+    "gpa": 3.0
+}
