@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
         const students = await Student.find();
         res.status(200).json(students);
     } catch (error) {
-        res.status(500).json({'message': error.message});
+        res.status(500).json({message: error.message});
     }
 });
 
@@ -18,7 +18,20 @@ router.get('/:id', (req, res) => {
 });
 
 // create
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
+    const student = new Student({
+        id: req.body.id,
+        name: req.body.name,
+        gpa: req.body.gpa,
+        year_enroll: req.body.year_enroll,
+    });
+
+    try {
+        const newStudent = await student.save();
+        res.status(201).json(newStudent);
+    } catch (error) {
+        res.status(400).json({message: error.message});
+    }
 
 });
 

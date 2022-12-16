@@ -2,9 +2,10 @@ const { default: mongoose } = require("mongoose");
 
 const studentSchema = new mongoose.Schema({
     id: {
-        type: Number,
+        type: String,
         required: true,
         unique: true,
+        length: 5,
     },
     name: {
         type: String,
@@ -15,7 +16,6 @@ const studentSchema = new mongoose.Schema({
     },
     year_enroll: {
         type: Number,
-        required: true,
         default: () => new Date().getFullYear(),
     },
 });
