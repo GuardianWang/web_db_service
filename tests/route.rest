@@ -13,3 +13,11 @@ Content-Type: application/json
     "id": "01234",
     "name": "Tom"
 }
+
+###
+
+GET http://localhost:3000/students/01234
+
+###
+
+GET http://localhost:3000/students/01235

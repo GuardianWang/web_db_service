@@ -13,8 +13,8 @@ router.get('/', async (req, res) => {
 });
 
 // get one
-router.get('/:id', (req, res) => {
-
+router.get('/:id', findStudentById, (req, res) => {
+    res.json(res.student);
 });
 
 // create
@@ -44,5 +44,22 @@ router.patch('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
 
 });
+
+async function findStudentById(req, res, next) {
+    let studentId = req.params.id;
+    try {
+        const student = await Student.findOne({'id': studentId});
+        if (student == null) {
+            return res.status(404).json({message: `cannot find student with id ${studentId}`});
+        } else {
+            res.student = student;
+        }
+    } catch (error) {
+        res.status(400).json({message: error.message});
+    }
+
+    next();
+
+}
 
 module.exports = router;
