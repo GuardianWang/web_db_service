@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const { default: mongoose } = require("mongoose");
-const studentsRouter = require('./routes/students.js');
+const studentsRouter = require('./routes/students');
 
 const app = express();
 mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true});
