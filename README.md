@@ -35,6 +35,10 @@ docker network create studentdb-network
 docker run --network studentdb-network -p 27017:27017 -d --name mongo mongo
 docker run --network studentdb-network -p 3000:3000 -d --env-file .env.docker studentdb
 ```
+or
+```
+docker-compose up
+```
 
 ## Reference
 

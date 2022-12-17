@@ -1,0 +1,21 @@
+services:
+  web:
+    build: .
+    command: npm start
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env.docker
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - student-db:/data/db
+
+volumes:
+  student-db:
+networks:
+  student-net:
