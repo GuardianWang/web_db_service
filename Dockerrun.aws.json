@@ -23,6 +23,15 @@
             ],
             "links": [
                 "mongo"
+            ],
+            "dependsOn": [
+                {
+                    "containerName": "mongo",
+                    "condition": "COMPLETE"
+                }
+            ],
+            "command": [
+                "npm", "start"
             ]
         },
 
