@@ -1,0 +1,48 @@
+{
+    "AWSEBDockerrunVersion": 2,
+
+    "volumes": [
+        {
+          "name": "student-db",
+          "host": {
+            "sourcePath": "/var/app/current/studentdb"
+          }
+        }
+      ],
+
+    "containerDefinitions": [
+        {
+            "name": "web",
+            "memory": 128,
+            "essential": true,
+            "portMappings": [
+                {
+                  "hostPort": 3000,
+                  "containerPort": 3000
+                }
+            ],
+            "links": [
+                "mongo"
+            ]
+        },
+
+        {
+            "name": "mongo",
+            "image": "mongo",
+            "memory": 128,
+            "essential": true,
+            "portMappings": [
+                {
+                  "hostPort": 27017,
+                  "containerPort": 27017
+                }
+            ],
+            "mountPoints": [
+                {
+                    "sourceVolume": "student-db",
+                    "containerPath": "/data/db"
+                }
+            ]
+        }
+    ]
+}
