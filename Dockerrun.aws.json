@@ -13,6 +13,7 @@
     "containerDefinitions": [
         {
             "name": "web",
+            "image": "guardianwang/student_api:main",
             "memory": 128,
             "essential": true,
             "portMappings": [
@@ -31,7 +32,7 @@
                 }
             ],
             "command": [
-                "npm", "start"
+                "npm start"
             ]
         },
 
