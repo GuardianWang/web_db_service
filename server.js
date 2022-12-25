@@ -1,7 +1,9 @@
 const dotenv = require("dotenv");
 if (process.env.NODE_ENV !== 'production') {
     dotenv.config();
-  }
+} else {
+    dotenv.config({path: '.env.docker'});
+}
 const express = require("express");
 const { default: mongoose } = require("mongoose");
 const studentsRouter = require('./routes/students');
