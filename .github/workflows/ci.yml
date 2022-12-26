@@ -46,7 +46,7 @@ jobs:
           aws_access_key: ${{ secrets.AWS_EB_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_EB_SECRET_ACCESS_KEY }}
           application_name: web_student_db_service
-          environment_name: Webstudentdbservice-env
+          environment_name: Webstudentdbservice-env-1
           existing_bucket_name: webstudentdbservice-bucket
           version_label: 2
           region: us-east-1
