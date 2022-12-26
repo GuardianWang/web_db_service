@@ -37,6 +37,10 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
       - 
+        name: use mongodb credentials
+        run: echo "\n" >> .env.docker 
+        run: echo "mongodb+srv://${{ secrets.MONGODB_USERNAME }}:${{ secrets.MONGODB_PASSWORD }}@cluster0.5jydn9h.mongodb.net/?retryWrites=true&w=majority" >> .env.docker 
+      - 
         name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
       - 
