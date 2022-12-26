@@ -3,6 +3,10 @@ if (process.env.NODE_ENV !== 'production') {
     dotenv.config({path: '.env'});
 } else {
     dotenv.config({path: '.env.docker'});
+    // aws
+    if (process.env.MONGODB_USERNAME) {
+        process.env.DATABASE_URL = `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@cluster0.5jydn9h.mongodb.net/?retryWrites=true&w=majority`;
+    }
 }
 const express = require("express");
 const { default: mongoose } = require("mongoose");
