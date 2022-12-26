@@ -1,6 +1,5 @@
 {
     "AWSEBDockerrunVersion": 2,
-
     "volumes": [
         {
           "name": "student-db",
@@ -9,7 +8,6 @@
           }
         }
       ],
-
     "containerDefinitions": [
         {
             "name": "web",
@@ -21,21 +19,8 @@
                   "hostPort": 3000,
                   "containerPort": 3000
                 }
-            ],
-            "links": [
-                "mongo"
-            ],
-            "dependsOn": [
-                {
-                    "containerName": "mongo",
-                    "condition": "COMPLETE"
-                }
-            ],
-            "command": [
-                "npm start"
             ]
         },
-
         {
             "name": "mongo",
             "image": "mongo",
