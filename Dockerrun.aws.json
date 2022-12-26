@@ -1,49 +1,9 @@
 {
-    "AWSEBDockerrunVersion": 2,
-    "volumes": [
+    "AWSEBDockerrunVersion": 1,
+    "Ports": [
         {
-          "name": "student-db",
-          "host": {
-            "sourcePath": "/var/app/current/studentdb"
-          }
-        }
-      ],
-    "containerDefinitions": [
-        {
-            "name": "web",
-            "image": "guardianwang/student_api:main",
-            "memory": 128,
-            "essential": true,
-            "portMappings": [
-                {
-                  "hostPort": 3000,
-                  "containerPort": 3000
-                }
-            ],
-            "environmentFiles": [
-                {
-                    "value": ".env",
-                    "type": "s3"
-                }
-            ]
-        },
-        {
-            "name": "mongo",
-            "image": "mongo",
-            "memory": 128,
-            "essential": true,
-            "portMappings": [
-                {
-                  "hostPort": 27017,
-                  "containerPort": 27017
-                }
-            ],
-            "mountPoints": [
-                {
-                    "sourceVolume": "student-db",
-                    "containerPath": "/data/db"
-                }
-            ]
-        }
+          "ContainerPort": 3000,
+          "HostPort": 3000
+        } 
     ]
 }
