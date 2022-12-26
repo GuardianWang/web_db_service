@@ -19,6 +19,12 @@
                   "hostPort": 3000,
                   "containerPort": 3000
                 }
+            ],
+            "environmentFiles": [
+                {
+                    "value": ".env",
+                    "type": "s3"
+                }
             ]
         },
         {
