@@ -1,4 +1,6 @@
 const dotenv = require("dotenv");
+console.log(`mongo userame: ${process.env.MONGODB_USERNAME}`);
+console.log(`mongo pwd: ${process.env.MONGODB_PASSWORD}`);
 if (process.env.NODE_ENV !== 'production') {
     dotenv.config({path: '.env'});
 } else {
