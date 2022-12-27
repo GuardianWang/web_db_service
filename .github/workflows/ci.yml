@@ -12,6 +12,10 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
+      - 
+        name: Set date
+        id: date
+        run: echo "ACTION_DATE=$(date)" >> $GITHUB_OUTPUT
       -
         name: Checkout
         uses: actions/checkout@v3
