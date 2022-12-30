@@ -43,7 +43,7 @@ jobs:
           application_name: web_student_db_service
           environment_name: Webstudentdbservice-env
           existing_bucket_name: webstudentdbservice-bucket
-          version_label: app dev ${{ steps.date.outputs.ACTION_DATE }}
+          version_label: app dev ${{ steps.date.outputs.ACTION_DATE }} ${{ github.sha }}
           region: us-east-1
           deployment_package: deploy.zip
           wait_for_deployment: false
